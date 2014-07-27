@@ -7,7 +7,7 @@ int b=0;
 char c;
 char d='d';
 
-void fun1(){
+void foobar(){
 	int a=10;
 	char *b="Vijay";
 	printf("Name: %s\n",b);
@@ -22,7 +22,7 @@ void fun1(){
 	free(ptr);
 }
 
-void fun2(char *filename){
+void file_write(char *filename){
 	int fd = open(filename, O_WRONLY | O_APPEND | O_CREAT, S_IRWXU | S_IRWXG | S_IRWXO);
 	if (fd < 0){
 		printf("Error opening file");
@@ -33,7 +33,7 @@ void fun2(char *filename){
 	close(fd);
 }
 
-void fun3(char * filename){
+void file_read(char * filename){
 	int fd = open(filename, O_RDONLY);
 	if (fd < 0){
 		printf("Error opening file for reading");
@@ -48,9 +48,10 @@ void fun3(char * filename){
 }
 
 int main(){
-	fun1();
-	fun2("Testfile1.txt");
-	fun3("Testfile1.txt");
+	foobar();
+	file_write("Testfile1.txt");
+	file_read("Testfile1.txt");
+	sleep(10);
 	return 0;
 }
 
