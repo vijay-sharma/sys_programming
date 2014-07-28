@@ -23,17 +23,12 @@ int main() {
     }
     umask(0);
             
-    /* Open any logs here */        
 
     sid = setsid();
     if (sid < 0) {
-        /* Log the failure */
         exit(EXIT_FAILURE);
     }
-    
-
     if ((chdir("/")) < 0) {
-        /* Log the failure */
         exit(EXIT_FAILURE);
     }
     
